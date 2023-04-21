@@ -1,6 +1,6 @@
 // Update with your config settings.
 
-import { DB_NAME, DB_USER, DB_PASSWORD } from "./config/index.js";
+import { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST } from "./config/index.js";
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
@@ -13,6 +13,7 @@ export default {
       database: DB_NAME,
       user: DB_USER,
       password: DB_PASSWORD,
+      host: DB_HOST
     },
     pool: {
       min: 2,
@@ -29,6 +30,7 @@ export default {
       database: DB_NAME,
       user: DB_USER,
       password: DB_PASSWORD,
+      host: DB_HOST
     },
     pool: {
       min: 2,
