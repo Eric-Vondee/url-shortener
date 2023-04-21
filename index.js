@@ -2,14 +2,24 @@ import createError from "http-errors";
 import cors from "cors";
 import compression from "compression";
 import express from "express";
-import { PORT } from "./config/index.js";
+import { NODE_ENV, PORT } from "./config/index.js";
 import Router from "./src/url-shorten.js";
+import helmet from "helmet";
+import {limiter} from './middleware/ratelimiter.js'
 const app = express();
 
+app.use(limiter)
+app.disable("x-powered-by");
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(compression());
+app.set("trust proxy", true);
+
+// Security
+if (NODE_ENV === "production") {
+  app.use(helmet());
+}
 
 app.get("/", (req, res, next) => {
   return res.status(200).json({

@@ -10,13 +10,11 @@ router.post("/shorten", async (req, res, next) => {
     const { longURL } = req.body;
     const findUrl = await db("users").where({ longURL: longURL }).first();
     if (findUrl) {
-      return res
-        .status(200)
-        .json({
-          statusCode: 200,
-          message: "fetched",
-          data: { shortURL: `${BASE_URL}/${findUrl.shortURL}`, longURL: findUrl.longURL },
-        });
+      return res.status(200).json({
+        statusCode: 200,
+        message: "fetched",
+        data: { shortURL: `${BASE_URL}/${findUrl.shortURL}`, longURL: findUrl.longURL },
+      });
     }
     const uuid = generateUUID();
     const shortURL = numToBase62(uuid);
