@@ -1,6 +1,6 @@
 // Update with your config settings.
 
-import { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST } from "./config/index.js";
+import { POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_USER } from "./config/index.js";
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
@@ -10,10 +10,10 @@ export default {
   staging: {
     client: "postgresql",
     connection: {
-      database: DB_NAME,
-      user: DB_USER,
-      password: DB_PASSWORD,
-      host: DB_HOST
+      database: POSTGRES_DB,
+      user: POSTGRES_USER,
+      password: POSTGRES_PASSWORD,
+      host: POSTGRES_HOST,
     },
     pool: {
       min: 2,
@@ -27,10 +27,10 @@ export default {
   production: {
     client: "postgresql",
     connection: {
-      database: DB_NAME,
-      user: DB_USER,
-      password: DB_PASSWORD,
-      host: DB_HOST
+      database: POSTGRES_DB,
+      user: POSTGRES_USER,
+      password: POSTGRES_PASSWORD,
+      host: POSTGRES_HOST,
     },
     pool: {
       min: 2,

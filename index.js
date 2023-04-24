@@ -5,10 +5,10 @@ import express from "express";
 import { NODE_ENV, PORT } from "./config/index.js";
 import Router from "./src/url-shorten.js";
 import helmet from "helmet";
-import {limiter} from './middleware/ratelimiter.js'
+import { limiter } from "./middleware/ratelimiter.js";
 const app = express();
 
-app.use(limiter)
+app.use(limiter);
 app.disable("x-powered-by");
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));

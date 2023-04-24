@@ -5,7 +5,7 @@ const redis = new Redis({
   port: REDIS_PORT,
   host: REDIS_HOST,
   username: REDIS_USERNAME,
-  password: REDIS_PASSWORD
+  password: REDIS_PASSWORD,
 });
 
 redis.on("error", (err) => console.error(err));

@@ -1,13 +1,13 @@
 import knex from "knex";
-import { DB_HOST, DB_NAME, DB_PASSWORD, DB_USER } from "../../config/index.js";
+import { POSTGRES_DB, POSTGRES_HOST, POSTGRES_PASSWORD, POSTGRES_USER } from "../../config/index.js";
 
 // const db = knex({
 //   client: "postgresql",
 //   connection: {
-//     host: DB_HOST,
-//     user: DB_USER,
-//     password: DB_PASSWORD,
-//     database: DB_NAME,
+//     host: POSTGRES_HOST,
+//     user: POSTGRES_USER,
+//     password: POSTGRES_PASSWORD,
+//     database: POSTGRES_DB,
 //   },
 //   pool:{
 //     min:0,
