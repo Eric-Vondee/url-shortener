@@ -5,8 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/Eric-Vondee/url-shortener.git",
   "scripts": {
+    "migrate": "knex migrate:latest --env production",
     "dev": "nodemon index.js",
-    "start": "node index.js",
+    "start": "npm run migrate && node index.js",
     "format": "prettier --write \"**/*.js\""
   },
   "author": "Eric-Vondee",
