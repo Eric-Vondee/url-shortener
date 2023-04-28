@@ -35,6 +35,8 @@ export default {
     pool: {
       min: 2,
       max: 10,
+      idleTimeoutMillis: 10000,
+      acquireTimeoutMillis: 900000,
     },
     migrations: {
       tableName: "knex_migrations",
