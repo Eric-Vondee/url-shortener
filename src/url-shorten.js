@@ -31,7 +31,6 @@ router.post("/shorten", async (req, res, next) => {
     await redis.expire(params.shortURL, 259200);
     res.status(200).json({ statusCode: 200, message: "created", data: params });
   } catch (e) {
-    console.log("1", e);
     return res.status(500).json({
       statusCode: 500,
       messsage: e.messsage,
@@ -62,7 +61,6 @@ router.get("/:id", async (req, res, next) => {
       }
     }
   } catch (e) {
-    console.log(e);
     return res.status(500).json({
       statusCode: 500,
       messsage: e.messsage,
