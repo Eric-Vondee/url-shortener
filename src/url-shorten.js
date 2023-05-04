@@ -54,12 +54,14 @@ router.get("/:id", async (req, res, next) => {
           shortURL: findUrl.shortURL,
           longURL: findUrl.longURL,
         });
+        url = findUrl.longURL
         await redis.expire(findUrl.shortURL, 259200);
-        res.redirect(301, findUrl.longURL);
+        //res.redirect(301, findUrl.longURL);
       } else {
         res.status(404).json({ statusCode: 404, message: "URL not found" });
       }
     }
+    res.status(200).json({statusCode:200, data:url })
   } catch (e) {
     return res.status(500).json({
       statusCode: 500,
