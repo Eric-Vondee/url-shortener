@@ -2,7 +2,7 @@ import createError from "http-errors";
 import cors from "cors";
 import compression from "compression";
 import express from "express";
-import { NODE_ENV, PORT } from "./config/index.js";
+import { BASE_URL, NODE_ENV, PORT } from "./config/index.js";
 import Router from "./src/url-shorten.js";
 import helmet from "helmet";
 import { limiter } from "./middleware/ratelimiter.js";
@@ -12,7 +12,7 @@ const app = express();
 const corsConfig = {
   origin:
     NODE_ENV === "production"
-      ? ["http://localhost:5173/", "http://localhost:5173", "https://transcript-chain.vercel.app/"]
+      ? ["http://localhost:5173", BASE_URL]
       : ["http://localhost:5173"],
   optionsSuccessStatus: 200,
   credentials: true,
